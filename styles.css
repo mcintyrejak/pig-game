@@ -88,7 +88,7 @@ h2 {
 }
 
 .total-score {
-  margin-top: 30%;
+  margin-top: 25%;
   margin-bottom: 25px;
   font-size: 60pt;
   font-weight: bold;
@@ -103,4 +103,24 @@ h2 {
   border-radius: 5px;
   text-align: center;
   color: rgb(255, 255, 255, 0.75);
+}
+
+.die {
+  display: block;
+  position: relative;
+  top: 41%;
+  margin: auto;
+  left: 60px;
+  background-color: rgb(255, 255, 255, 0.95);
+  width: 65px;
+  height: 65px;
+  border-radius: 4px;
+  box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
+  visibility: hidden; /* hide for now */
+}
+
+.hide-die {
+  visibility: hidden;
 }
