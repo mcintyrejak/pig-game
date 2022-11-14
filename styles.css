@@ -10,6 +10,7 @@ body {
 h2 {
   margin-top: 0;
   font-size: 25pt;
+  color: rgb(0, 0, 0, 0.35);
 }
 
 .container {
@@ -62,7 +63,7 @@ h2 {
   width: 50%;
   min-width: 250px;
   padding: 25px;
-  background-color: rgb(255, 255, 255, 0.15);
+  background-color: rgb(66, 4, 126, 0.1);
   border: 1px solid rgb(7, 244, 158, 0.07);
 }
 
@@ -79,10 +80,20 @@ h2 {
 }
 
 .p-active {
-  background-color: rgb(255, 255, 255, 0.55);
-  box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.15);
+  background-color: rgb(255, 255, 255, 0.15);
+  transition: ease-in 0.15s;
+}
+
+.p-active .curr-score {
+  background-color: rgb(60, 28, 129, 0.85);
+}
+
+.p-active .total-score {
+  color: rgb(60, 28, 129, 0.85);
+}
+
+.p-active h2 {
+  color: rgb(0, 0, 0, 0.95);
 }
 
 .total-score {
@@ -90,17 +101,17 @@ h2 {
   margin-bottom: 25px;
   font-size: 60pt;
   font-weight: bold;
-  color: rgb(60, 28, 129, 0.85);
+  color: rgb(60, 28, 129, 0.35);
 }
 
 .curr-score {
-  background-color: rgb(60, 28, 129, 0.85);
+  background-color: rgb(60, 28, 129, 0.35);
   width: 50%;
   padding-top: 20px;
   border: 1px solid rgb(66, 4, 126, 0.05);
   border-radius: 5px;
   text-align: center;
-  color: rgb(255, 255, 255, 0.75);
+  color: rgb(255, 255, 255, 0.55);
 }
 
 .die {
