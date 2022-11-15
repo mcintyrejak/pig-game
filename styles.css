@@ -18,7 +18,7 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 65%;
-  height: 100%;
+  height: 100vh;
 }
 
 .controls {
@@ -84,10 +84,6 @@ h2 {
   transition: ease-in 0.15s;
 }
 
-.p-active .curr-score {
-  background-color: rgb(60, 28, 129, 0.85);
-}
-
 .p-active .total-score {
   color: rgb(60, 28, 129, 0.85);
 }
@@ -111,21 +107,47 @@ h2 {
   border: 1px solid rgb(66, 4, 126, 0.05);
   border-radius: 5px;
   text-align: center;
-  color: rgb(255, 255, 255, 0.55);
+  color: rgb(255, 255, 255, 0.45);
+}
+
+.p-active .curr-score {
+  background-color: rgb(60, 28, 129, 0.95);
+  color: rgb(255, 255, 255, 0.85);
+}
+
+.die-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 50.85%;
+  width: 100px;
+  height: 100vh;
+}
+
+.die-bg-shape {
+  background-color: rgb(66, 4, 126, 0.9);
+  border: 1px solid rgb(7, 244, 158, 0.6);
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: fixed;
+  top: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
 }
 
 .die {
   display: block;
-  position: relative;
-  top: 180px;
-  margin: auto;
-  left: 60px;
+  top: 31%;
+  position: fixed;
   border-radius: 4px;
-  text-align: center;
   font-size: 75pt;
   color: #07f49e;
   -webkit-text-stroke: 1px rgb(66, 4, 126, 0.55);
-  /* visibility: hidden;  */
+  /* visibility: hidden; */
 }
 
 .hide-die {

@@ -39,7 +39,6 @@ const rollDie = () => {
 
 rollDieBtn.addEventListener("click", () => {
   rollDie();
-
   if (currentPlayer === "p1" && roll !== 1) {
     p1CurrentScore += roll;
     p1CurrentScoreEl.innerText = p1CurrentScore;
