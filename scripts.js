@@ -71,7 +71,9 @@ holdBtn.addEventListener("click", () => {
     p1CurrentScoreEl.innerText = 0;
     currentPlayer = "p2";
     p1CurrentScore = 0;
-  } else {
+    p1CurrentScoreEl.innerText = 0;
+    p2CurrentScoreEl.innerText = 0;
+  } else if (currentPlayer === "p2") {
     p2HeldScore = Number(p2TotalScore.innerText) + p2CurrentScore;
     p2TotalScore.innerText = p2HeldScore;
     p2CurrentScoreEl.innerText = 0;
@@ -79,20 +81,22 @@ holdBtn.addEventListener("click", () => {
     p2CurrentScore = 0;
   }
   changePlayer();
-  declareWinner();
+  if (p1HeldScore >= 5 || p2HeldScore >= 5) {
+    declareWinner();
+  }
 });
 
 const declareWinner = () => {
   if (p1HeldScore >= 5) {
     p1PanelEl.classList.add("is-winner");
     p2PanelEl.classList.remove("p-active");
-    console.log(`P1 wins`);
   } else if (p2HeldScore >= 5) {
-    console.log(`P2 wins`);
     p2PanelEl.classList.add("is-winner");
     p1PanelEl.classList.remove("p-active");
   }
   die.innerText = "🎉";
+  rollDieBtn.disabled = true;
+  holdBtn.disabled = true;
 };
 
 // FOR NEW GAME
@@ -106,5 +110,7 @@ newGameBtn.addEventListener("click", () => {
   p2HeldScore = 0;
   p1TotalScore.innerText = 0;
   p2TotalScore.innerText = 0;
+  p1CurrentScoreEl.innerText = 0;
+  p2CurrentScoreEl.innerText = 0;
   currentPlayer = "p1";
 });
