@@ -2,8 +2,6 @@
 
 let currentPlayer = "p1";
 
-const newGameBtn = document.querySelector(".new-game-btn");
-
 //FOR PLAYER HIGHLIGHT
 const p1PanelEl = document.querySelector(".p1");
 const p2PanelEl = document.querySelector(".p2");
@@ -94,4 +92,19 @@ const declareWinner = () => {
     p2PanelEl.classList.add("is-winner");
     p1PanelEl.classList.remove("p-active");
   }
+  die.innerText = "🎉";
 };
+
+// FOR NEW GAME
+const newGameBtn = document.querySelector(".new-game-btn");
+
+newGameBtn.addEventListener("click", () => {
+  p1CurrentScore = 0;
+  p2CurrentScore = 0;
+  die.innerText = "";
+  p1HeldScore = 0;
+  p2HeldScore = 0;
+  p1TotalScore.innerText = 0;
+  p2TotalScore.innerText = 0;
+  currentPlayer = "p1";
+});
