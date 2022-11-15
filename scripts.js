@@ -85,9 +85,13 @@ holdBtn.addEventListener("click", () => {
 });
 
 const declareWinner = () => {
-  if (p1HeldScore >= 100) {
+  if (p1HeldScore >= 5) {
+    p1PanelEl.classList.add("is-winner");
+    p2PanelEl.classList.remove("p-active");
     console.log(`P1 wins`);
-  } else if (p2HeldScore >= 100) {
+  } else if (p2HeldScore >= 5) {
     console.log(`P2 wins`);
+    p2PanelEl.classList.add("is-winner");
+    p1PanelEl.classList.remove("p-active");
   }
 };

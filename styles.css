@@ -150,6 +150,19 @@ h2 {
   /* visibility: hidden; */
 }
 
-.hide-die {
-  visibility: hidden;
+.is-winner {
+  background-color: rgb(7, 244, 158, 0.55);
+}
+
+.is-winner .curr-score {
+  background-color: #42047e;
+  color: rgb(255, 255, 255, 0.85);
+}
+
+.is-winner .total-score {
+  color: #42047e;
+}
+
+.is-winner h2 {
+  color: black;
 }
