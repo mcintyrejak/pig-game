@@ -6,8 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Pig Game</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap");
+    </style>
   </head>
   <body>
+    <div class="info-modal hide-modal">
+      <div class="info-modal-content">
+        <div class="close-modal-btn">⊗</div>
+        <p>
+          The game is played with alternating players. For each turn, the active
+          player rolls the die and chooses whether or not to 'hold,' thereby
+          adding their current roll(s) to their total score. If a one is rolled,
+          the active player's current score goes to zero and their turn ends.
+          The first player to reach the total score of 100 wins the game.
+        </p>
+      </div>
+    </div>
+
     <div class="die-container">
       <div class="die-bg-shape"></div>
       <div class="die"></div>

@@ -2,10 +2,18 @@
 
 let currentPlayer = "p1";
 
+const changePlayer = () => {
+  if (currentPlayer === "p1") {
+    currentPlayer = "p2";
+  } else if (currentPlayer === "p2") {
+    currentPlayer = "p1";
+  }
+};
+
 //FOR PLAYER HIGHLIGHT
 const p1PanelEl = document.querySelector(".p1");
 const p2PanelEl = document.querySelector(".p2");
-const changePlayer = () => {
+const highlightCurrentPlayer = () => {
   if (currentPlayer === "p1") {
     p1PanelEl.classList.add("p-active");
     p2PanelEl.classList.remove("p-active");
@@ -15,7 +23,7 @@ const changePlayer = () => {
   }
 };
 
-changePlayer();
+highlightCurrentPlayer();
 
 // FOR ROLLS
 const rollDieBtn = document.querySelector(".roll-die-btn");
@@ -37,7 +45,15 @@ const rollDie = () => {
 
 rollDieBtn.addEventListener("click", () => {
   rollDie();
-  if (currentPlayer === "p1" && roll !== 1) {
+  if (currentPlayer === "p1" && roll === 1) {
+    p1CurrentScore = 0;
+    p1CurrentScoreEl.innerText = 0;
+    changePlayer();
+  } else if (currentPlayer === "p2" && roll === 1) {
+    p2CurrentScore = 0;
+    p2CurrentScoreEl.innerText = 0;
+    changePlayer();
+  } else if (currentPlayer === "p1" && roll !== 1) {
     p1CurrentScore += roll;
     p1CurrentScoreEl.innerText = p1CurrentScore;
   } else if (currentPlayer === "p2" && roll !== 1) {
@@ -46,18 +62,16 @@ rollDieBtn.addEventListener("click", () => {
   } else if (currentPlayer === "p1" && roll === 1) {
     p1CurrentScore = 0;
     p1CurrentScoreEl.innerText = 0;
-    currentPlayer = "p2";
+    changePlayer();
   } else if (currentPlayer === "p2" && roll === 1) {
     p2CurrentScore = 0;
     p2CurrentScoreEl.innerText = 0;
-    currentPlayer = "p1";
+    changePlayer();
   }
-  changePlayer();
+  highlightCurrentPlayer();
 });
 
 const getRandomNumber = () => Math.floor(Math.random() * 6);
-
-//FOR WINNER
 
 //FOR HOLDS
 const holdBtn = document.querySelector(".hold-btn");
@@ -69,7 +83,7 @@ holdBtn.addEventListener("click", () => {
     p1HeldScore = Number(p1TotalScore.innerText) + p1CurrentScore;
     p1TotalScore.innerText = p1HeldScore;
     p1CurrentScoreEl.innerText = 0;
-    currentPlayer = "p2";
+    changePlayer();
     p1CurrentScore = 0;
     p1CurrentScoreEl.innerText = 0;
     p2CurrentScoreEl.innerText = 0;
@@ -77,11 +91,11 @@ holdBtn.addEventListener("click", () => {
     p2HeldScore = Number(p2TotalScore.innerText) + p2CurrentScore;
     p2TotalScore.innerText = p2HeldScore;
     p2CurrentScoreEl.innerText = 0;
-    currentPlayer = "p1";
+    changePlayer();
     p2CurrentScore = 0;
   }
-  changePlayer();
-  if (p1HeldScore >= 5 || p2HeldScore >= 5) {
+  highlightCurrentPlayer();
+  if (p1HeldScore >= 100 || p2HeldScore >= 100) {
     declareWinner();
   }
 });
@@ -112,5 +126,20 @@ newGameBtn.addEventListener("click", () => {
   p2TotalScore.innerText = 0;
   p1CurrentScoreEl.innerText = 0;
   p2CurrentScoreEl.innerText = 0;
-  currentPlayer = "p1";
+  changePlayer();
 });
+
+// FOR GAME INFO
+const gameInfoBtn = document.querySelector(".how-to-btn");
+const infoModalEl = document.querySelector(".info-modal");
+const closeModalBtn = document.querySelector(".close-modal-btn");
+
+gameInfoBtn.addEventListener("click", () => {
+  infoModalEl.classList.remove("hide-modal");
+});
+
+if (infoModalEl.classList.contains("hide-modal")) {
+  closeModalBtn.addEventListener("click", () => {
+    infoModalEl.classList.add("hide-modal");
+  });
+}
