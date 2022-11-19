@@ -101,10 +101,10 @@ holdBtn.addEventListener("click", () => {
 });
 
 const declareWinner = () => {
-  if (p1HeldScore >= 5) {
+  if (p1HeldScore >= 100) {
     p1PanelEl.classList.add("is-winner");
     p2PanelEl.classList.remove("p-active");
-  } else if (p2HeldScore >= 5) {
+  } else if (p2HeldScore >= 100) {
     p2PanelEl.classList.add("is-winner");
     p1PanelEl.classList.remove("p-active");
   }
@@ -126,7 +126,9 @@ newGameBtn.addEventListener("click", () => {
   p2TotalScore.innerText = 0;
   p1CurrentScoreEl.innerText = 0;
   p2CurrentScoreEl.innerText = 0;
-  changePlayer();
+  p1PanelEl.classList.remove("is-winner");
+  p2PanelEl.classList.remove("is-winner");
+  currentPlayer = "p1";
 });
 
 // FOR GAME INFO
